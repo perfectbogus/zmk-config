@@ -9,6 +9,13 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
         keymap {
                 compatible = "zmk,keymap";
 
@@ -17,40 +24,58 @@
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+//                    | LWR | GUI | SPC |   | ENT | ALT  | RSE |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+                   &mo 2 &kp LGUI &kp SPACE   &kp RET &kp RALT &mo 1
                         >;
                 };
                 lower_layer {
+// With Shift I got Symbols with the numbers
 // -----------------------------------------------------------------------------------------
 // |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL  |
-// |      |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |      |     |     |     |     |     |   |     |     |     |     |     |      |
+// | SHFT |     |     |     |     |     |   |     |     |     |     |     | SHFT |
+//                    |     | GUI | SPC |   | ENT | ALT |     |
                         bindings = <
-   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp DEL
-   &trans     &trans       &trans       &trans       &trans       &trans         &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp ESC    &kp N1   &kp N2   &kp N3     &kp N4   &kp N5     &kp N6   &kp N7   &kp N8 &kp N9   &kp N0 &kp DEL
+   &trans     &trans   &trans   &trans     &trans   &trans     &trans   &trans   &trans &trans   &trans &trans
+   &kp LSHFT  &trans   &trans   &trans     &trans   &trans     &trans   &trans   &trans &trans   &kp RSHFT
+                                &trans     &kp LGUI &kp SPACE  &kp RET  &trans   &kp RALT
                         >;
                 };
 
                 raise_layer {
+// With Shift I got the symbols _, +, {, }, |, ~
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  TAB |     |     |     |     |     |   |     |     |     |  -  |  =   | BKSP |
+// | CTRL |     |     |     |     |     |   |     |     |  [  |  ]  |  \  |  `    |
+// | SHFT |     |     |     |     |     |   |     |     |     |     |     |  SHFT |
+//                    |     | GUI | SPC |   | ENT | ALT |     |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &kp  TAB  &trans   &trans &trans   &trans   &trans     &trans    &trans    &trans   &kp MINUS   &kp EQUAL   &kp BSPC
+   &kp LCTRL &trans   &trans &trans   &trans   &trans     &trans    &trans    &kp LBKT &kp RBKT    &kp BSLH    &kp GRAVE
+   &kp LSHFT &trans   &trans &trans   &trans   &trans     &trans    &trans    &trans   &trans      &trans      &kp RSHFT
+                             &trans   &kp LGUI &kp SPACE  &kp RET   &kp RALT  &trans
                         >;
                 };
+
+
+
+              controls_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |      |     |         |     |     |   |      |      |  UP   |       |  BKSP |
+// | CTRL | LFT  | PRV |  Play/P | NXT |     |   |      | LEFT | DOWN  | RIGHT |       |
+// | SHFT | MUTE | VOL-| VOL+    |     |     |   |      |      |       |       |  SHFT |
+//                     |         | GUI | SPC |   | ENT | ALT |      |
+                        bindings = <
+   &kp  TAB  &trans     &trans        &trans       &trans     &trans     &trans    &trans    &kp UP   &trans     &trans   &kp BSPC
+   &kp LCTRL &kp LEFT   &kp C_PREV    &kp C_PP     kp C_NEXT  &trans     &trans    &kp LEFT  &kp DOWN &kp RIGHT  &trans   &trans
+   &kp LSHFT &kp C_MUTE &kp C_VOL_DN  &kp C_VOL_UP &trans     &trans     &trans    &trans    &trans   &trans     &trans   &kp RSHFT
+                             &trans   &kp LGUI &kp SPACE  &kp RET   &kp RALT   &trans
+                        >;
+              };
         };
 };
