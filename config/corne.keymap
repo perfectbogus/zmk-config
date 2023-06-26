@@ -50,12 +50,12 @@
                 raise_layer {
 // With Shift I got the symbols _, +, {, }, |, ~
 // -----------------------------------------------------------------------------------------
-// |  TAB |     |     |     |     |     |   |     |     |     |  -  |  =   | BKSP |
+// |  ESC |     |     |     |     |     |   |     |     |     |  -  |  =  | DEL   |
 // | CTRL |     |     |     |     |     |   |     |     |  [  |  ]  |  \  |  `    |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |  SHFT |
 //                    |     | GUI | SPC |   | ENT | ALT |     |
                         bindings = <
-   &kp  TAB  &trans   &trans &trans   &trans   &trans     &trans    &trans    &trans   &kp MINUS   &kp EQUAL   &kp BSPC
+   &kp  ESC  &trans   &trans &trans   &trans   &trans     &trans    &trans    &trans   &kp MINUS   &kp EQUAL   &kp DEL
    &kp LCTRL &trans   &trans &trans   &trans   &trans     &trans    &trans    &kp LBKT &kp RBKT    &kp BSLH    &kp GRAVE
    &kp LSHFT &trans   &trans &trans   &trans   &trans     &trans    &trans    &trans   &trans      &trans      &kp RSHFT
                              &trans   &kp LGUI &kp SPACE  &kp RET   &kp RALT  &trans
