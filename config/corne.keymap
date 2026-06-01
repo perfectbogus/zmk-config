@@ -69,10 +69,10 @@
 // | CAPS | MUTE   | VOL-| VOL+    |     |         |   | HOME    | PG_DN |  END  |       |  SHFT |
 //                       |         | GUI |   SPC   |   | ENT     | ALT   |       |
                         bindings = <
-   &kp  TAB  &trans     &trans        &trans       &trans      &bt BT_PRV     &bt BT_NXT    &trans    &trans   &trans   &trans   &kp BSPC
-   &kp LCTRL &kp LEFT   &kp C_PREV    &kp C_PP     &kp C_NEXT  &trans         &bt BT_CLR    &kp PG_UP    &trans   &trans   &trans   &trans
-   &kp CAPS  &kp C_MUTE &kp C_VOL_DN  &kp C_VOL_UP &trans      &trans         &kp HOME      &kp PG_DN    &kp END   &trans   &trans   &kp RSHFT
-                                      &trans       &kp LGUI    &kp SPACE      &kp RET       &kp RALT  &trans
+   &kp  TAB  &trans     &trans        &trans       &trans      &bt BT_PRV     &bt BT_NXT    &trans      &trans      &trans   &trans   &kp BSPC
+   &kp LCTRL &kp LEFT   &kp C_PREV    &kp C_PP     &kp C_NEXT  &trans         &bt BT_CLR    &trans      &kp PG_UP   &trans   &trans   &trans
+   &kp CAPS  &kp C_MUTE &kp C_VOL_DN  &kp C_VOL_UP &trans      &trans         &trans        &kp HOME    &kp PG_DN   &kp END  &trans   &kp RSHFT
+                                      &trans       &kp LGUI    &kp SPACE      &kp RET       &kp RALT    &trans
                         >;
               };
         };
